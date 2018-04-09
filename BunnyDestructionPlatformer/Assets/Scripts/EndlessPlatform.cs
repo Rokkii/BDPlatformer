@@ -10,6 +10,9 @@ public class EndlessPlatform : MonoBehaviour {
 
     private float platformWidth;
 
+    public float platformGapMin;
+    public float platformGapMax;
+
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +26,8 @@ public class EndlessPlatform : MonoBehaviour {
 		
         if (transform.position.x < genPoint.position.x)
         {
+            distanceBetween = Random.Range(platformGapMin, platformGapMax); /*Generate distance between platforms randomly between max/min allowed distance*/
+
             transform.position = new Vector3(transform.position.x + platformWidth + distanceBetween, transform.position.y, transform.position.z);
 
             Instantiate(objPlatform, transform.position, transform.rotation); /*Create new platform*/
