@@ -7,6 +7,9 @@ public class MoveController : MonoBehaviour {
     public float movementSpeed;
     public float jumpForce;
 
+    public float jumpTime;
+    private float jumpTimeCounter;
+
     private Rigidbody2D objRigidBody;
 
     public bool grounded;
@@ -24,6 +27,8 @@ public class MoveController : MonoBehaviour {
         myCollider = GetComponent<Collider2D>(); /*Finds box collider attached to player*/
 
         playerAnimator = GetComponent<Animator>(); /*Finds animator attached to player*/
+
+        jumpTimeCounter = jumpTime;
 
 	}
 	
@@ -43,6 +48,29 @@ public class MoveController : MonoBehaviour {
                 objRigidBody.velocity = new Vector2(objRigidBody.velocity.x, jumpForce); /*Change y velocity to = jumpForce*/
             }
         }
+
+
+        if (Input.GetKey (KeyCode.Space) || Input.GetMouseButton(0))
+        {
+            if (jumpTimeCounter > 0)
+            {
+                objRigidBody.velocity = new Vector2(objRigidBody.velocity.x, jumpForce); /*Change y velocity to = jumpForce*/
+                jumpTimeCounter -= Time.deltaTime;
+            }
+        }
+
+
+        if (Input.GetKeyUp (KeyCode.Space) || Input.GetMouseButtonUp(0))
+        {
+            jumpTimeCounter = 0;
+        }
+
+
+        if (grounded)
+        {
+            jumpTimeCounter = jumpTime;
+        }
+
 
         playerAnimator.SetFloat("Speed", objRigidBody.velocity.x); /*Get x value of rigid body and set this to speed*/
 

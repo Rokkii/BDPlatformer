@@ -288,6 +288,7 @@
     <Compile Include="Assets\Scripts\MoveController.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PlatformDestroy.cs" />
+    <Compile Include="Assets\Scripts\Pooling.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
