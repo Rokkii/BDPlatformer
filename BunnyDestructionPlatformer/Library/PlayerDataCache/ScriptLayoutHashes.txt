@@ -1,6 +1,7 @@
 WindowsStandalone
 SceneListBegin?
 Assets/Scenes/Menu.unity
+Assets/Scenes/Controls.unity
 Assets/Scenes/Runner Scene.unity
 SceneListEnd?
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
